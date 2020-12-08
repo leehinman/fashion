@@ -20,3 +20,12 @@ func WellFormed(r io.Reader) bool {
 	}
 	return true
 }
+
+// WellFormedUnmarshal uses xml.Unmarshal to ensure xml is well formed
+func WellFormedUnmarshal(b []byte) bool {
+	err := xml.Unmarshal(b, new(interface{}))
+	if err != nil {
+		return false
+	}
+	return true
+}
